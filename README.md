@@ -50,7 +50,7 @@ Actions를 사용하지 않으려면 워크플로 파일을 삭제하고 Pages�
 
 ## 정책의 근거와 유지보수
 
-정책은 2026년 10월 28일 로컬의 `calcmate-app`과 `notezi-app` 구현, 설치 의존성, iOS 개인정보 선언을 확인해 작성했습니다. 두 앱의 스토어 등록용 아이콘을 재사용했습니다.
+정책은 2026년 10월 28일 로컬의 `calcmate-app`과 `notezi-app` 구현, 설치 의존성, iOS 개인정보 선언을 확인해 작성했습니다. 두 앱의 스토어 등록용 아이콘을 재사용했습니다. Notezi 정책은 2026년 11월 16일 `notezi-app`의 `11845c5` 커밋(앱 1.00.00, 빌드 1)을 기준으로 다시 확인했습니다. 체크리스트 진행률의 기기 내 계산, 시작 도구, 다시 사용한 목록의 별도 보관·삭제, 공유 수신 대기 파일과 알림 제목의 본문 대체 표시를 반영했으며, 홈페이지 소개와 Notezi 아이콘도 현재 앱에 맞췄습니다. Notezi는 아직 정식 출시 전이므로 정책의 공개일과 앱 적용일을 구분하고, 앱 적용일은 정식 출시일로 안내합니다. 이전 출시나 개정을 전제로 하는 시행 이력은 표시하지 않습니다.
 
 | 정책 항목 | 확인한 구현 |
 | --- | --- |
@@ -58,11 +58,14 @@ Actions를 사용하지 않으려면 워크플로 파일을 삭제하고 Pages�
 | 생활 계산기 백업·공유 | `src/features/backup/screens/BackupScreen.tsx`, `src/shared/files/textFiles.ts`, `src/features/results/components/ResultActions.tsx` |
 | 생활 계산기 기록 보관 기간 | `src/features/settings/components/RecordRetentionCleanup.tsx`, `src/data/repositories/sqlite/RecordsRepository.ts` |
 | Notezi 저장 항목 | `src/db/schema.ts`, `src/features/notes/screens/NoteEditorScreen.tsx` |
+| Notezi 진행률·시작 도구·다시 사용 | `src/db/queries/workspace.ts`, `src/features/workspace/starters.ts`, `src/features/workspace/checklists.ts` |
+| Notezi 공유 수신 임시 파일 | `src/features/sharing/incomingShares.ts`, `ios/NoteziShare/ShareViewController.m` |
+| Notezi 알림 제목 | `src/utils/text.ts`, `src/features/reminders/notifications.ts` |
 | Notezi 백업·복원 사본 | `src/features/backup/backup.ts` |
 | Notezi 내보내기·알림·삭제 | `src/features/notes/export.ts`, `src/features/reminders/notifications.ts`, `src/db/queries/notes.ts` |
 | 수집·추적 선언 | 각 앱의 `ios/<앱 이름>/PrivacyInfo.xcprivacy`, `package.json` |
 
-공개 전에는 실제 출시 빌드의 SDK·권한·데이터 처리 방식이 본문과 일치하는지 확인합니다. 특히 Notezi의 휴지통, 복원 전 안전 백업, 캐시와 외부 사본은 서로 다른 삭제 대상을 뜻합니다. 문의 이메일을 처리 목적 달성 후 삭제한다는 운영 방침도 실제 문의 관리에 적용해야 합니다.
+공개 전에는 실제 출시 빌드의 SDK·권한·데이터 처리 방식이 본문과 일치하는지 확인합니다. 특히 Notezi의 다시 사용한 목록, 휴지통, 복원 전 안전 백업, 캐시와 외부 사본은 서로 다른 삭제 대상을 뜻합니다. 문의 이메일을 처리 목적 달성 후 삭제한다는 운영 방침도 실제 문의 관리에 적용해야 합니다.
 
 정보 수집·동기화·광고·분석 기능을 추가하거나 문의 처리 방식이 바뀌면 해당 앱의 HTML 본문과 시행일·최종 수정일을 함께 갱신합니다. 필요한 경우 홈페이지의 요약도 수정합니다.
 
